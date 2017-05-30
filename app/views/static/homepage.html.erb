@@ -1,3 +1,16 @@
-<%= link_to "Sign in with Facebook", "/auth/facebook" %>
+<h1>BnB</h1>
 
-<h1>Homepage</h1>
+<% if signed_in? %>
+<%= link_to "Create a new listing", new_listing_path %>
+<% end %>
+<h2>Latest Listings</h2>
+<p></p>
+<% @listing.each do |listing| %>
+<p>Listing Type : <%= listing.property_type %></p>
+<p>Price per Day: <%= listing.price %></p>
+<p>address      : <%= listing.address %></p>
+<p>Photos				: <%= listing.picture %></p>
+<p>Listing by   : <%= listing.user.username %></p>
+<p>Created at <%= time_ago_in_words(listing.created_at) %> ago</p>
+<p>--------------------------------------------------------------</p>
+<% end %>

@@ -11,18 +11,22 @@
   <body>
 
 	<% if signed_in? %>
-	  <a>Welcome <%= current_user.username.capitalize %></a><br>
+	  <d>Welcome <%= current_user.username.capitalize %></d><br>
 	  <p></p>
-	  <a>Username :<%= current_user.username %></a><br>
-	  <a>Email    :<%= current_user.email %></a>
+	  <d>Username :<%= current_user.username %></d><br>
+	  <d>Email    :<%= current_user.email %></d>
 	  <%= link_to "Edit profile", edit_user_path(current_user) %>
 	  <%= button_to "Sign out", sign_out_path, method: :delete %>
 	<% else %>
 		<%= link_to "Home", root_path %>
 		<%= link_to "Register", sign_up_path %>
-	  <%= link_to "Sign in", sign_in_path %>
+	  <%= link_to "Login", sign_in_path %>
+	  <%= link_to "Sign in with Facebook", "/auth/facebook" %>
 	<% end %>
 
     <%= yield %>
+
+
+
   </body>
 </html>

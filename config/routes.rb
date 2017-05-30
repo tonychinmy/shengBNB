@@ -13,7 +13,10 @@ Rails.application.routes.draw do
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:edit, :update, :show]
+
+  #Listing routes
+  resources :listings
   
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
