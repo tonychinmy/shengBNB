@@ -8,6 +8,8 @@
 <h2>Latest Listings</h2>
 <p></p>
 <% @listing.each do |listing| %>
+<p>Title        : <%= listing.title %></p>
+<p>Description  : <%= listing.description %></p>
 <p>Listing Type : <%= listing.property_type %></p>
 <p>Price per Day: <%= listing.price %></p>
 <p>address      : <%= listing.address %></p>
