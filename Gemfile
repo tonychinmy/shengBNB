@@ -37,6 +37,7 @@ gem "clearance"
 gem "figaro"
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'faker'
 
 
 group :development, :test do
