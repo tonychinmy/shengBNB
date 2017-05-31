@@ -38,6 +38,7 @@ gem "figaro"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'faker'
+gem 'kaminari'
 
 
 group :development, :test do

@@ -16,3 +16,4 @@
 <p>Created at <%= time_ago_in_words(listing.created_at) %> ago</p>
 <p>--------------------------------------------------------------</p>
 <% end %>
+<%= paginate @listing %>
