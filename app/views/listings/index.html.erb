@@ -6,11 +6,10 @@
 <% @listings.each do |l| %>
 <%= link_to "Edit Listing", edit_listing_path(l) %>
 <%= link_to "Delete", listing_path(l), method: :delete, data: { confirm: 'Are you sure?' } %>
-<p>Title        : <%= l.title %></p>
+<p><%= link_to "Title : #{l.title}", listing_path(l) %></p>
 <p>Listing Type : <%= l.property_type %></p>
 <p>Price per Day: <%= l.price %></p>
-<p>address      : <%= l.address %></p>
-<p>Photos				: <%= l.picture %></p>
+<p>Address      : <%= l.address %></p>
 <p>Description  : <%= l.description %></p>
 <p>Created at <%= time_ago_in_words(l.created_at) %> ago</p>
 <p>--------------------------------------------------------------</p>

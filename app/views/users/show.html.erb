@@ -1,0 +1,18 @@
+
+
+<%= link_to "Home", root_path %>
+
+<h1><%= @user.username %> listings</h1>
+
+
+
+<% @user.listings.each do |l| %>
+<p>Title : <%= l.title %></p>
+<p>Listing Type : <%= l.property_type %></p>
+<p>Price per Day: <%= l.price %></p>
+<p>Address      : <%= l.address %></p>
+<p>Description  : <%= l.description %></p>
+<p>Created at <%= time_ago_in_words(l.created_at) %> ago</p>
+<p><%= "-"*200 %></p>
+<% end %>
+

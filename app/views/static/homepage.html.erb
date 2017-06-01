@@ -8,13 +8,12 @@
 <h2>Latest Listings</h2>
 <p></p>
 <% @listing.each do |listing| %>
-<p>Title        : <%= listing.title %></p>
+<p>Title :<%= link_to "#{listing.title}", listing_path(listing) %></p>
 <p>Description  : <%= listing.description %></p>
 <p>Listing Type : <%= listing.property_type %></p>
 <p>Price per Day: <%= listing.price %></p>
 <p>address      : <%= listing.address %></p>
-<p>Photos				: <%= listing.picture %></p>
-<p>Listing by   : <%= listing.user.username %></p>
+<p>Listing by   : <%= link_to "#{listing.user.username}", user_path(listing.user_id) %></p>
 <p>Created at <%= time_ago_in_words(listing.created_at) %> ago</p>
 <p>--------------------------------------------------------------</p>
 <% end %>

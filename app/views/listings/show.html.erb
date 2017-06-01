@@ -1,0 +1,12 @@
+<%= link_to "Home", root_path %>
+<%= link_to "Back", listings_path %>
+<h1>This is the show page</h1>
+
+<p>Title : <%= @listing.title %></p>
+<p>Listing Type : <%= @listing.property_type %></p>
+<p>Price per day : <%= @listing.price %></p>
+<p>Address : <%= @listing.address %></p>
+<p>Description : <%= @listing.description %></p>
+<p>Created at <%= time_ago_in_words(@listing.created_at) %> ago</p>
+
+

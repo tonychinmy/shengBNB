@@ -52,11 +52,11 @@ class ListingsController < ApplicationController
 
 	def check_owner
     unless @listing.user_id == current_user.id
-      redirect_to listings_path, notice: "You are not allowed to access that page."
+      redirect_to root_path, notice: "You are not allowed to access that page."
     end
   end
 
 	def listing_params
-    params.require(:listing).permit(:property_type, :price, :address, :picture, :title, :decription)
+    params.require(:listing).permit(:property_type, :price, :address, :title, :decription)
   end
 end
