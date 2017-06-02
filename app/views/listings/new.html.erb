@@ -1,7 +1,7 @@
 <h1>Create new BnB listing here</h1>
 <%= link_to "Home", root_path %>
 <p></p>
-<%= form_for @listing do |form| %>
+<%= form_for @listing, html: {multipart: true} do |form| %>
 	<%= render partial: '/listings/form', object: form %>
 
   <%= form.submit %>

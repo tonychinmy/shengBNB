@@ -1,9 +1,10 @@
 class User < ApplicationRecord
   include Clearance::User
-
+  mount_uploader :profile_photo, ProfilePhotoUploader
   validates :username, uniqueness: true
 	has_many :authentications, dependent: :destroy
 	has_many :listings
+  has_many :reservations
 
     def self.create_with_auth_and_hash(authentication, auth_hash)
     	
@@ -22,4 +23,5 @@ class User < ApplicationRecord
       x = self.authentications.find_by(provider: 'facebook')
       return x.token unless x.nil?
     end
+
 end

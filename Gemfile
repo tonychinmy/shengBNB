@@ -14,6 +14,7 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -39,7 +40,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'faker'
 gem 'kaminari'
-
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
