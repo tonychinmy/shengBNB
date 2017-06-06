@@ -24,6 +24,10 @@ class UsersController < Clearance::UsersController
     @user = User.find(params[:id])
   end
 
+  def reservations
+    @reservations = current_user.reservations.order("created_at DESC").page(params[:page])
+  end
+  
 private
   def user_params
     params.require(:user).permit(:username, :first_name, :last_name, :email, :password, :profile_photo)

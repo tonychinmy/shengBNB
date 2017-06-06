@@ -1,0 +1,13 @@
+<h1>This is listing_reservations_path</h1>
+
+<%= link_to "Back", listing_path(@listing.id) %>
+
+<% @listing.reservations.each do |r|%>
+	<p>Customer : <%= r.user.username %></p>
+	<p>Email : <%= r.user.email %></p>
+	<p>Check-in : <%= r.start_date %> Check-out : <%= r.end_date %></p>
+	<p>Total Amount : <%= r.price %></p>
+	<p>Reservation made <%= time_ago_in_words(r.created_at) %> ago</p>
+	<p>-----------------------------------------</p>
+<% end %>
+

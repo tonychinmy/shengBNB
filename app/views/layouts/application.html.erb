@@ -3,27 +3,31 @@
   <head>
     <title>Bnb</title>
     <%= csrf_meta_tags %>
+        <!-- Load the Client component. -->
+<script src="https://js.braintreegateway.com/web/3.6.3/js/client.min.js"></script>
+
+<!-- Load the Hosted Fields component. -->
+<script src="https://js.braintreegateway.com/web/3.6.3/js/hosted-fields.min.js"></script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	  <meta charset="utf-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   </head>
 
   <body>
 
 	<% if signed_in? %>
-	  <d>Welcome <%= current_user.username.capitalize %></d><br>
-	  <p></p>
-	  <p><%= image_tag current_user.profile_photo.thumb.url , id:"avatar"%></p>
-	  <d>Username :<%= current_user.username %></d><br>
-	  <d>Email    :<%= current_user.email %></d>
-	  <%= link_to "Edit profile", edit_user_path(current_user) %>
-	  <%= button_to "Sign out", sign_out_path, method: :delete %>
+		  <d>Welcome <%= current_user.username.capitalize %></d><br>
+		  <p></p>
+		  <% if !(current_user.profile_photo.url.nil?) %>
+		  <p><%= image_tag current_user.profile_photo.thumb.url , id:"avatar"%></p>
+		  <% end %>
+		  <d>Username :<%= current_user.username %></d><br>
+		  <d>Email    :<%= current_user.email %></d>
+		  <%= link_to "Edit profile", edit_user_path(current_user) %>
+		  <%= button_to "Sign out", sign_out_path, method: :delete %>
 	<% else %>
 		<%= link_to "Home", root_path %>
 		<%= link_to "Register", sign_up_path %>

@@ -1,8 +1,9 @@
+<h1>Create new BnB Reservations here</h1>
 <%= link_to "Home", root_path %>
-<%= link_to "Back", listings_path %>
-<h1>This is the show page for <%= @listing.user.username %></h1>
+<p></p>
 
-<%= link_to "Make Reservation", new_listing_reservation_path(@listing.id) %>
+<h2>This is <%= @listing.user.username %> page</h2>
+<p></p>
 <p>Title : <%= @listing.title %></p>
 <p>Listing Type : <%= @listing.property_type %></p>
 <p>Price per day : <%= @listing.price %></p>
@@ -52,4 +53,26 @@
 <p></p>
 <p>Created at <%= time_ago_in_words(@listing.created_at) %> ago</p>
 
-<%= link_to "Bookings for this listing", listing_reservations_path(@listing.id) %>
+<%= form_for @reservation, url:listing_reservations_path(@listing) do |form| %>
+	<%= render partial: '/reservations/form', object: form %>
+	<%= hidden_field_tag @listing.id %>
+  <%= form.submit %>
+<% end %>
+
+
+<button onclick="myFunction()">Calculate Price</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    // document.getElementById("reservation_start_date").innerHTML = "Hello World";
+    var start_date = moment($('#reservation_start_date').val()).format('YYYY-MM-DD');
+    var end_date = moment($('#reservation_end_date').val()).format('YYYY-MM-DD');
+    console.log(start_date);
+    console.log(end_date);
+    // moment(start_date).format('YYYY-MM-DD')
+    var total = end_date.diff(start_date, 'days');
+    console.log(total);
+}
+</script>

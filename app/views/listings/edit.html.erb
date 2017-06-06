@@ -3,9 +3,8 @@
 <h1>Update your BnB listing</h1>
 <p>Current Listing Information</p>
 
-<%= form_for @listing, html: {multipart: true} do |form| %>
-	<%= render partial: '/listings/form', object: form %>
-
+<%= form_for @reservation, url:listing_reservations_path(@listing) do |form| %>
+	<%= render partial: '/reservations/form', object: form %>
+	<%= hidden_field_tag @listing.id %>
   <%= form.submit %>
 <% end %>
-

@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
 	before_action :set_listing, only: [:show, :edit, :update, :destroy]
 	before_action :check_owner, only: [:edit, :update, :destroy]
 
-	def homepage
+	def homepage 
 		
 	end
 
@@ -57,6 +57,6 @@ class ListingsController < ApplicationController
   end
 
 	def listing_params
-    params.require(:listing).permit(:property_type, :price, :address, :title, :description, {listing_photos: []})
+    params.require(:listing).permit(:property_type, :price, :address, :title, :description, :city, {listing_photos: []})
   end
 end

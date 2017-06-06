@@ -3,6 +3,7 @@
 <% if signed_in? %>
 <%= link_to "Create a new listing", new_listing_path %>
 <%= link_to "My Listings", listings_path %>
+<%= link_to "My Reservations", reservations_path %>
 
 <% end %>
 <h2>Latest Listings</h2>
@@ -12,7 +13,8 @@
 <p>Description  : <%= listing.description %></p>
 <p>Listing Type : <%= listing.property_type %></p>
 <p>Price per Day: <%= listing.price %></p>
-<p>address      : <%= listing.address %></p>
+<p>Address      : <%= listing.address %></p>
+<p>City         : <%= listing.city %></p>
 <p>Listing by   : <%= link_to "#{listing.user.username}", user_path(listing.user_id) %></p>
 <p>Created at <%= time_ago_in_words(listing.created_at) %> ago</p>
 <p>--------------------------------------------------------------</p>

@@ -1,0 +1,11 @@
+<%= link_to "Home", root_path %>
+<%= link_to "My Reservations", listing_reservations_path(@listing) %>
+<h1>Update your BnB reservation</h1>
+<p>Current Reservation Information</p>
+
+<%= form_for @listing, html: {multipart: true} do |form| %>
+	<%= render partial: '/listings/form', object: form %>
+
+  <%= form.submit %>
+<% end %>
+

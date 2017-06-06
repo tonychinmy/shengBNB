@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170602093359) do
+ActiveRecord::Schema.define(version: 20170605045807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170602093359) do
     t.string   "title"
     t.text     "description"
     t.json     "listing_photos"
+    t.string   "city"
     t.index ["user_id"], name: "index_listings_on_user_id", using: :btree
   end
 
@@ -44,6 +45,10 @@ ActiveRecord::Schema.define(version: 20170602093359) do
     t.integer  "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "listing_id"
+    t.index ["listing_id"], name: "index_reservations_on_listing_id", using: :btree
+    t.index ["user_id"], name: "index_reservations_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,4 +68,6 @@ ActiveRecord::Schema.define(version: 20170602093359) do
 
   add_foreign_key "authentications", "users"
   add_foreign_key "listings", "users"
+  add_foreign_key "reservations", "listings"
+  add_foreign_key "reservations", "users"
 end
