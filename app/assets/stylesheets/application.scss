@@ -28,6 +28,10 @@
     height: 75px;
   }
 
+#container-homebanner {
+  width: 100%;
+}
+
 .special {
 	width: 800px;
 	height: 100%;
@@ -35,4 +39,13 @@
   margin: auto;
 }
 
+.carousel-inner > .item > img {
+    background-color: #ffffff;
+    margin: auto auto;
+    max-height: 100%;
+    max-width: 100%;
+}
 
+.left carousel-control {
+    background-color: #ffffff;
+}

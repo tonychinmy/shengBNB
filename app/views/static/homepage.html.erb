@@ -4,8 +4,11 @@
 <%= link_to "[ Create a new listing ]", new_listing_path %>
 <%= link_to "[ My Listings ]", listings_path %>
 <%= link_to "[ My Reservations ]", reservations_path %>
-
 <% end %>
+
+<!-- <div>
+	<img id="container-homebanner" class="img-responsive" src="/assets/somewhere.jpeg">
+</div> -->
 <h2>Latest Listings</h2>
 <p></p>
 <% @listing.each do |listing| %>
