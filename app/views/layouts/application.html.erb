@@ -17,7 +17,7 @@
   </head>
 
   <body>
-
+	<%= link_to "[ Home ]", root_path %>
 	<% if signed_in? %>
 		  <d>Welcome <%= current_user.username.capitalize %></d><br>
 		  <p></p>
@@ -29,10 +29,10 @@
 		  <%= link_to "Edit profile", edit_user_path(current_user) %>
 		  <%= button_to "Sign out", sign_out_path, method: :delete %>
 	<% else %>
-		<%= link_to "Home", root_path %>
-		<%= link_to "Register", sign_up_path %>
-	  <%= link_to "Login", sign_in_path %>
-	  <%= link_to "Sign in with Facebook", "/auth/facebook" %>
+
+		<%= link_to "[ Register ]", sign_up_path %>
+	  <%= link_to "[ Login ]", sign_in_path %>
+	  <%= link_to "[ Sign in with Facebook ]", "/auth/facebook" %>
 	<% end %>
 	<% flash.each do |key, value| %>
 		<div><%= value %></div>
