@@ -20,7 +20,8 @@ class ReservationsController < ApplicationController
 	# @reservation.user = current_user
 	# @reservation.user_id = current_user.id
 	    if @reservation.save
-	    		ReservationMailer.booking_email(current_user, @reservation.user, @reservation.id).deliver_now
+	    		ReservationJob.perform_now(current_user, @reservation.user, @reservation.id)
+	    		# ReservationMailer.booking_email(current_user, @reservation.user, @reservation.id).deliver_now
 	     	 redirect_to listing_reservations_path
 	    else
 	      render template: "reservations/new"

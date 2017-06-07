@@ -3,6 +3,9 @@ class ReservationMailer < ApplicationMailer
   	@customer = customer
   	@host = host
   	@reservation_id = reservation_id
-  	mail(to:@host.email, subject: 'You have a New Booking')
+  	mail(to:"trainingacademy111@gmail.com", subject: 'You have a New Booking')
   end
 end
+# #suppose to be this
+# mail(to:"@host.email", subject: 'You have a New Booking')
+
